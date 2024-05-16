@@ -1,4 +1,3 @@
 #!/usr/bin/python3
 for hexa in range(0, 99):
-     print(hex(hexa))
-     
+    print(hex(hexa))
