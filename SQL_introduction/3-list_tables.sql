@@ -1,2 +1,3 @@
 -- List tables
-SELECT * FROM mysql;
+USE mysql;
+SHOW TABLES;
