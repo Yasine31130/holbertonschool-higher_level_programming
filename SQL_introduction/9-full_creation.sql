@@ -1,4 +1,12 @@
--- List all cities contained in database
-SELECT cities.id, cities.name, states.name FROM cities
-JOIN states ON cities.state_id = states.id
-ORDER BY cities.id;
+--  Create a table second_table in the database
+CREATE TABLE IF NOT EXISTS second_table (
+    id INT,
+    name VARCHAR(256),
+    score INT
+);
+
+INSERT INTO second_table (id, name, score) VALUE
+(1, "John", 10),
+(2, "Alex", 3),
+(3, "Bob", 14),
+(4, "George", 8);
