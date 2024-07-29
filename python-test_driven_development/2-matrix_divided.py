@@ -29,10 +29,10 @@ def matrix_divided(matrix, div):
             not isinstance(matrix, list) or matrix == [] or
             not all(isinstance(row, list) for row in matrix) or
             not all(isinstance(num, (int, float))
-                for row in matrix for num in row)
-            ):
+                    for row in matrix for num in row)
+    ):
         raise TypeError(
-                "matrix must be a matrix (list of lists) of integers/floats")
+            "matrix must be a matrix (list of lists) of integers/floats")
 
     row_length = len(matrix[0])
     for row in matrix:

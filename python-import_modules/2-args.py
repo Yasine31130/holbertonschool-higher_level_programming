@@ -2,15 +2,21 @@
 
 from sys import argv
 
-if __name__ == "__main__":
 
-    argument == len(argv)
-    if argument == 1:
-        print("0 arguments.")
-    elif argument == 2:
-        print("1 argument:")
+def list_args(argv):
+    argc = len(argv)
+    if argc == 2:
+        print(f"{argc - 1} argument", end="")
     else:
-        print("{} arguments:".format(argument - 1))
-    
-    for i in range (1, argument):
-        print("{}: {}".format(i, argv[i]))
+        print(f"{argc - 1} arguments", end="")
+    if argc == 1:
+        print(".")
+        return
+    else:
+        print(":")
+    for i in range(1, argc):
+        print(f"{i}: {argv[i]}")
+
+
+if __name__ == "__main__":
+    list_args(argv)

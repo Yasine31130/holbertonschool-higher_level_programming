@@ -1,28 +1,49 @@
 #!/usr/bin/python3
-"""Unittest for max_integer([..])
+
 """
+Unittest for the max_integer([..]) function
+"""
+
+# Import the `unittest` module.
 import unittest
+
+# Import the `max_integer` function from the module '6-max_integer'
 max_integer = __import__('6-max_integer').max_integer
 
-class TestMaxInteger(unittest.TestCase):
 
-    def test(self):
-        self.assertEqual(max_integer([1, 3, 2, 4]), 4)
+class test_max_integer(unittest.TestCase):
+    """
+    A unit test class for the 'max_integer' function.
 
-    def test_max_beginning(self):
-        self.assertEqual(max_integer([4, 3, 1, 2]), 4)
+    This class defines a series of test cases to validate the behavior of the 'max_integer' function.
+    It includes tests for basic functionality, handling of various input scenarios, and error cases.
+    """
+    # Basic test case
 
-    def test_middle(self):
-        self.assertEqual(max_integer([3, 4, 2]), 4)
-
-    def test_one_negatif_number(self):
-        self.assertEqual(max_integer([-4, 3, 1, 2]), 3)
-
-    def test_only_negatif_number(self):
-        self.assertEqual(max_integer([-4, -3, -1, -2]), -1)
-
-    def test_of_one_element(self):
+    def test_basic_functioning(self):
         self.assertEqual(max_integer([2]), 2)
+        self.assertEqual(max_integer([2, 4, 6, 8]), 8)
+        self.assertEqual(max_integer([2, 6, 4]), 6)
+        self.assertEqual(max_integer([-2, -4, -6, -8]), -2)
 
-    def test_is_empty(self):
+    # Test case for lists with multiple maximum values.
+    def test_multiple_maximum_values(self):
+        self.assertIn(max_integer([8, 2, 4, 6, 8, 8]), [8, 8, 8])
+
+    # Test case for an empty list.
+    def test_empty_list(self):
         self.assertEqual(max_integer([]), None)
+
+    # Test case for a function call without arguments.
+    def test_no_arguments(self):
+        self.assertEqual(max_integer(), None)
+
+    # Test case for a non-list argument ; should raise TypeError
+    def test_not_a_list(self):
+        with self.assertRaises(TypeError):
+            max_integer(2468)
+
+    # Test case for a list with non-integer elements ; should raise TypeError
+    def test_list_is_not_int(self):
+        with self.assertRaises(TypeError):
+            max_integer(["2", 4, "6", 8], 8)
