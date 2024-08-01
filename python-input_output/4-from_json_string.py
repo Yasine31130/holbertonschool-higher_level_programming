@@ -1,12 +1,15 @@
 #!/usr/bin/python3
-# 4-from_json_string.py
+"""Module containing the function from_json_string"""
 
-
-"""Returns a Python object represented by a JSON string."""
 
 import json
 
 
 def from_json_string(my_str):
-    """Defines the function, has the argument of my_str"""
+    """
+    Returns an object (Python data structure) represented by a JSON string.
+
+    :param my_str: The JSON string to deserialize.
+    :return: The corresponding Python object.
+    """
     return json.loads(my_str)

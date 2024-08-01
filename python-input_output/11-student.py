@@ -1,13 +1,13 @@
 #!/usr/bin/python3
 """
 Defines the Student class with public instance attributes and methods
-to retrieve a dictionary representation of a Student instance.
+to manage JSON serialization and deserialization.
 """
 
 
 class Student:
     """
-    Represents a student with a first name, last name, and age.
+    Represents a student with first name, last name, and age.
     """
 
     def __init__(self, first_name, last_name, age):
@@ -28,12 +28,11 @@ class Student:
         Returns a dictionary representation of the Student instance.
 
         Args:
-            attrs (list, optional): List of attribute names to include
-            in the dictionary. If None, all attributes will be included.
+            attrs (list, optional): List of attribute names to include.
+                                     If None, all attributes are included.
 
         Returns:
-            dict: A dictionary containing the specified attributes
-            of the student.
+            dict: A dictionary containing the specified attributes.
         """
         if attrs is None:
             return self.__dict__
@@ -43,3 +42,13 @@ class Student:
                 if hasattr(self, attr):
                     result[attr] = getattr(self, attr)
             return result
+
+    def reload_from_json(self, json):
+        """
+        Replaces all attributes of the Student instance from a JSON dictionary.
+
+        Args:
+            json (dict): A dictionary with attribute names as keys and values.
+        """
+        for key, value in json.items():
+            setattr(self, key, value)

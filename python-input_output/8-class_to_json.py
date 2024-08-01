@@ -1,13 +1,20 @@
 #!/usr/bin/python3
-# 8-class_to_json.pyi
-
-"""function that returns the dictionary"""
+"""
+Defines a function that converts an object's attributes to a dictionary
+suitable for JSON serialization.
+"""
 
 
 def class_to_json(obj):
-    """ defining has argument of obj"""
+    """
+    Returns a dictionary representation of an object's attributes
+    for JSON serialization.
 
-    return obj.__dict__
+    Args:
+        obj (object): An instance of a class.
 
-
-"""Returns the dictionary"""
+    Returns:
+        dict: A dictionary containing the attributes of the object.
+    """
+    json_obj = vars(obj)
+    return json_obj

@@ -1,17 +1,16 @@
 #!/usr/bin/python3
-# 2-append_write.pyi
-
-""" Function that appends text to file and returns char added as stdout"""
+"""Module containing the function append_write"""
 
 
 def append_write(filename="", text=""):
-    """Append text to a file and return chars added"""
+    """
+    Appends a string to the end of a text file (UTF8) and returns the number of
+    characters added.
 
-    with open(filename, mode='a', encoding='utf-8') as file:
-        """Open where the file is using the encoding"""
-
-        file.write(text)
-        """Put the text in the file"""
-
-        return len(text)
-    """Return the chars added"""
+    :param filename: The name of the file to append to. Defaults to an empty
+    string.
+    :param text: The string to append. Defaults to an empty string.
+    :return: The number of characters added.
+    """
+    with open(filename, 'a', encoding='utf-8') as file:
+        return file.write(text)
